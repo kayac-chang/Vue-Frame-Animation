@@ -1,18 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" width="25%">
-    <HelloWorld msg="Hello Vue in CodeSandbox!"/>
+    <h1>Frame Animation with VueJS!</h1>
+
+    <div class="flex justify-center">
+      <FrameAnimation :frames="frames" autoplay loop />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import FrameAnimation from "./components/FrameAnimation";
+
+function range(n) {
+  return [...Array(n).keys()];
+}
 
 export default {
   name: "App",
   components: {
-    HelloWorld
-  }
+    FrameAnimation,
+  },
+  computed: {
+    frames() {
+      return range(21).map((idx) => require(`./assets/Frame_${idx}.png`));
+    },
+  },
 };
 </script>
 
@@ -24,5 +36,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
 }
 </style>
