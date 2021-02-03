@@ -3,7 +3,7 @@
     <h1>Frame Animation with VueJS!</h1>
 
     <div class="flex justify-center">
-      <FrameAnimation :frames="frames" autoplay loop />
+      <FrameAnimation class="w-48" :frames="frames" :fps="32" autoplay loop />
     </div>
   </div>
 </template>
@@ -43,5 +43,9 @@ export default {
 }
 .justify-center {
   justify-content: center;
+}
+
+.w-48 {
+  width: 12rem;
 }
 </style>
